@@ -1,0 +1,55 @@
+
+package javafxprac;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.stage.Stage;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.scene.text.*;
+
+public class JavaFxApplication extends Application {
+    Label label1,label2;
+    TextField name,address;
+    Button submit;
+    @Override
+    public void start(Stage stage) throws Exception {
+        Font f=new Font("Times New Roman",20);
+        label1=new Label("Name");
+        label1.setFont(f);
+        label2=new Label("Address");
+        label2.setFont(f);
+        
+        name=new TextField();
+        address=new TextField();
+        name.setPrefColumnCount(15);
+        address.setPrefColumnCount(15);
+ 
+        submit=new Button("Submit");
+ 
+        HBox hb1=new HBox();
+        hb1.setAlignment(Pos.CENTER);
+        HBox hb2=new HBox();
+        hb2.setAlignment(Pos.CENTER);
+        hb2.setPadding(new Insets(10,10,10,10));
+        HBox hb3=new HBox();
+        hb3.setAlignment(Pos.CENTER);
+
+        hb1.getChildren().addAll(label1,name);
+        hb2.getChildren().addAll(label2,address);
+        hb3.getChildren().addAll(submit);
+        
+        VBox v=new VBox();
+        v.setAlignment(Pos.CENTER);
+        v.getChildren().addAll(hb1,hb2,hb3);
+        
+        Scene sc=new Scene(v,500,500);
+        stage.setScene(sc);
+        stage.show();
+        
+    }
+    public static void main(String[] args){
+        launch(args);
+    }
+}
